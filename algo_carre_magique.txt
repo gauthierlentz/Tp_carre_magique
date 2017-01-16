@@ -1,0 +1,97 @@
+algo carré_magique
+BUT : afficheru ncarré magique
+ENTREE : une constante
+SORTIE : le carré magique
+
+CONST
+	max=7
+Type
+	carremagique = tableau [1..max,1..max] de entier
+
+procedure poseun (var t1:carremagique; var pi:entier; var pj:entier)
+var
+	i,j:integer
+debut
+	POUR i DE 1 A max FAIRE
+		debut
+			POUR j de 1 A max FAIRE
+				debut
+					T1[i,j] <- 0
+					pi <- (max div 2)
+					pj <- (max div 2+1)
+					T1[pi,pj] <- 1
+				fin
+		fin
+fin
+
+procedure espace (var T1:carremagique; var pi:entier; var pj:entier; compteur:entier)
+var
+	i,j:entier
+debut
+	POUR i DE 1 A max FAIRE
+		debut
+			POUR j DE 1 A max FAIRE
+				debut
+					T1[i,j] <- 0
+				fin
+			ECRIRE
+		fin
+	compteur <- 1
+	TANT QUE (compteur <= max*max) FAIRE
+		debut
+			pi <- pi-1
+			pj <- pj+1
+				SI (pi<1) ALORS
+					debut
+						pi <- max
+					end
+				SI (pj>max) ALORS
+					debut
+						pj <- max
+					end
+			TANT QUE (T1[pi,pj] <> 0) FAIRE
+				debut
+					pi <- pi-1
+					pj <- pj-1
+					SI (pi < 1) ALORS
+						debut
+							pi <- max
+						end
+					SI (pj <1) ALORS
+						debut
+							pj <- max
+						end
+				end
+			T1[pi,pj] <- compteur
+			compteur <- compteur+1
+		end
+end
+
+procedure afficher (var T1:carremagique)
+var
+	i,j:entier
+debut
+	POUR i DE 1 A max FAIRE
+	debut
+		POUR j DE 1 A max FAIRE
+		debut
+			ECRIRE(T1[i,j])
+			ECRIRE (' ')
+		fin
+		ECRIRE
+	fin
+fin
+
+VAR
+	T2:tableau [1..max,1..max] de entier
+	i,j,pi,pj,compteur:entier
+debut
+	debut
+		poseun (T2, pi, pj)
+		espace (T2, pj, pi, compteur)
+		afficher (T2)
+	fin
+LIRE
+FIN.
+		
+		
