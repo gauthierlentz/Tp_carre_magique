@@ -21,7 +21,7 @@ debut
 					pj <- (max div 2+1)
 					T1[pi,pj] <- 1
 				fin
-		fin
+		finpour
 fin
 
 procedure espace (var T1:carremagique; var pi:entier; var pj:entier; compteur:entier)
@@ -44,11 +44,11 @@ debut
 				SI (pi<1) ALORS
 					debut
 						pi <- max
-					end
+					fin
 				SI (pj>max) ALORS
 					debut
 						pj <- max
-					end
+					fin
 			TANT QUE (T1[pi,pj] <> 0) FAIRE
 				debut
 					pi <- pi-1
@@ -56,16 +56,16 @@ debut
 					SI (pi < 1) ALORS
 						debut
 							pi <- max
-						end
+						fin
 					SI (pj <1) ALORS
 						debut
 							pj <- max
-						end
-				end
+						fin
+				fin
 			T1[pi,pj] <- compteur
 			compteur <- compteur+1
-		end
-end
+		fintantque
+fin
 
 procedure afficher (var T1:carremagique)
 var
@@ -79,13 +79,13 @@ debut
 			ECRIRE (' ')
 		fin
 		ECRIRE
-	fin
+	finpour
 fin
 
 VAR
 	T2:tableau [1..max,1..max] de entier
 	i,j,pi,pj,compteur:entier
-debut
+DEBUT
 	debut
 		poseun (T2, pi, pj)
 		espace (T2, pj, pi, compteur)
