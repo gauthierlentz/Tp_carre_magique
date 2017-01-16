@@ -6,7 +6,7 @@ CONST
 Type
         CarreMagique = Array [1..MAX,1..MAX] of integer;
 
-Procedure poseun (var t1:carremagique; var pi:integer; var pj:integer);
+Procedure poseun (var t1:carremagique; var pi:integer; var pj:integer);     // premiäre procedure pour poser les nombres
 var
         i,j:integer;
 begin
@@ -22,7 +22,7 @@ begin
                 end;
 end;
 
-Procedure espace (var T1:carremagique; var pi:integer; pj:integer; compteur:integer);
+Procedure espace (var T1:carremagique; var pi:integer; pj:integer; compteur:integer);  // deuxiäme procedure pour dÇfinir les options
 var
         i,j:integer;
 begin
@@ -65,7 +65,7 @@ begin
                 end;
 end;
 
-procedure afficher (var T1:carremagique);
+procedure afficher (var T1:carremagique); // troisiäme procedure pour afficher le carrÇ magique
 var
         i,j:integer;
 begin
@@ -83,12 +83,12 @@ end;
 VAR
         T2:array [1..MAX,1..MAX] of integer;
         i,j,pi,pj,compteur:integer;
-begin
+begin                                                         // programme principal
         clrscr;
         begin
-                poseun (T2, pi, pj);
-                espace (T2, pj, pi, compteur);
-                afficher(T2);
+                poseun (T2, pi, pj);                         // appel de la premiäre procedure
+                espace (T2, pj, pi, compteur);               // appel de la seconde procedure
+                afficher (T2);                                // appel de troisiäme procedure
         end;
 readln;
 END.
